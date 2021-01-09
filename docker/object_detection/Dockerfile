@@ -22,9 +22,10 @@
 #     docker run --name edgetpu-detect \
 #       --rm -it --privileged -p 6006:6006 \
 #       --mount type=bind,src=${DETECT_DIR},dst=/tensorflow/models/research/learn_pet \
-#       detect-tutorial-tf1
+#	--gpus=all \      
+#	detect-tutorial-tf1-bdd100k
 
-FROM tensorflow/tensorflow:1.12.0-rc2-devel
+FROM tensorflow/tensorflow:1.12.0-rc2-devel-gpu
 
 # Get the tensorflow models research directory, and move it into tensorflow
 # source folder to match recommendation of installation
